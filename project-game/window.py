@@ -1,25 +1,41 @@
 from tkinter import *
 from tkinter import ttk
 from PIL import ImageTk, Image
+def d():
+   print('h')
 def main():
+    global window
     window.destroy()
     window1 = Tk()
-    window1.geometry("1320x1320")
-    
+    window1.title('ba')
+    window1.geometry(f'{app_width}x{app_height}')
+    frame = Frame(window1, width=app_width, height=app_height)
+    frame.pack()
+    canvas=Canvas(frame,width=app_width, height=app_height)
+    canvas.pack()
+    # creat_button=Button(frame,command=d,bg='blue',width=100,height=10)
+    # creat_button.pack()
+    bg_image = Image.open("image/bg.png")
+    bg_image = bg_image.resize((app_width,app_height))
+    background = ImageTk.PhotoImage(bg_image)
+    canvas.create_image(0,0,image=background,anchor=NW)
     window1.mainloop()
     
 window = Tk()
-window.geometry("600x650")
+app_width = window.winfo_screenwidth()
+app_height = window.winfo_screenheight()
+window.geometry(f'{app_width}x{app_height}')
 bg_image = Image.open("./image/Premium Vector _ Mountains and bright sky in the morning_.jfif")
-bg_image = bg_image.resize((600, 620))
+bg_image = bg_image.resize((app_width,app_height))
 background = ImageTk.PhotoImage(bg_image)
 
-frame = Frame(window, width=1920, height=1820)
+frame = Frame(window, width=app_width, height=app_height)
 frame.pack()
 
-canvas = Canvas(frame, width=1000, height=1200)
+canvas = Canvas(frame, width=app_width, height=app_height)
 canvas.pack()
 canvas.create_image(0, 0, image=background, anchor=NW)
+
 Player = Image.open("./image/Mario.png")
 Player = Player.resize((140, 145)) 
 Player = ImageTk.PhotoImage(Player)
@@ -83,6 +99,5 @@ progressbar = ttk.Progressbar(mode="indeterminate")
 progressbar.place(x=170, y=390, width=240)
 progressbar.start()
 
-
-window.after(2000, main)
+window.after(1000, main)
 window.mainloop()
