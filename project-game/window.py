@@ -20,7 +20,6 @@ frame.pack()
 canvas = Canvas(frame, width=1000, height=1200)
 canvas.pack()
 canvas.create_image(0, 0, image=background, anchor=NW)
-
 Player = Image.open("./image/Mario.png")
 Player = Player.resize((140, 145)) 
 Player = ImageTk.PhotoImage(Player)
@@ -83,6 +82,7 @@ window.title("Progress Bar in Tk")
 progressbar = ttk.Progressbar(mode="indeterminate")
 progressbar.place(x=170, y=390, width=240)
 progressbar.start()
+
 
 window.after(2000, main)
 window.mainloop()
