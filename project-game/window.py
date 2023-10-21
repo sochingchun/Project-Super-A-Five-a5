@@ -19,13 +19,29 @@ def main():
     bg_image = bg_image.resize((app_width,app_height))
     background = ImageTk.PhotoImage(bg_image)
     canvas.create_image(0,0,image=background,anchor=NW)
+    
+#    ------Wall------    
+    canvas.create_rectangle(0, 630, 400, 810, fill="black", tags="wall")
+    canvas.create_rectangle(0, 0, 20, 810, fill="black", tags="wall")
+    canvas.create_rectangle(0, 0, 1400, 20, fill="black", tags="wall")
+    canvas.create_rectangle(1250, 0, 1300, 1200, fill="black", tags="wall")
+    canvas.create_rectangle(500, 630, 1536, 810, fill="black", tags="wall")
+    canvas.create_rectangle(500, 530, 550, 810, fill="black", tags="wall")
+    canvas.create_rectangle(600, 570, 550, 810, fill="black", tags="wall")
+    canvas.create_rectangle(650, 595, 550, 810, fill="black", tags="wall")
+    canvas.create_rectangle(400, 530, 350, 810, fill="black", tags="wall")
+    canvas.create_rectangle(400, 570, 300, 810, fill="black", tags="wall")
+    canvas.create_rectangle(400, 600, 250, 810, fill="black", tags="wall")
+#                                                
     window1.mainloop()
+
+    
     
 window = Tk()
 app_width = window.winfo_screenwidth()
 app_height = window.winfo_screenheight()
 window.geometry(f'{app_width}x{app_height}')
-bg_image = Image.open("./image/Premium Vector _ Mountains and bright sky in the morning_.jfif")
+bg_image = Image.open("./image/bg2.jpg")
 bg_image = bg_image.resize((app_width,app_height))
 background = ImageTk.PhotoImage(bg_image)
 
