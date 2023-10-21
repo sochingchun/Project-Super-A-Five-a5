@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+import pygame
 from PIL import ImageTk, Image
 def d():
    print('h')
@@ -19,13 +20,24 @@ def main():
     bg_image = bg_image.resize((app_width,app_height))
     background = ImageTk.PhotoImage(bg_image)
     canvas.create_image(0,0,image=background,anchor=NW)
+    
+    wall = Image.open("./image/wall.png")
+    wall = wall.resize((50, 45)) 
+    wall = ImageTk.PhotoImage(wall)
+    wall_image = canvas.create_image(250, 624, image=wall, anchor=CENTER)
+
+
+    
+                                                                      
     window1.mainloop()
+
+    
     
 window = Tk()
 app_width = window.winfo_screenwidth()
 app_height = window.winfo_screenheight()
 window.geometry(f'{app_width}x{app_height}')
-bg_image = Image.open("./image/Premium Vector _ Mountains and bright sky in the morning_.jfif")
+bg_image = Image.open("./image/bg2.jpg")
 bg_image = bg_image.resize((app_width,app_height))
 background = ImageTk.PhotoImage(bg_image)
 
