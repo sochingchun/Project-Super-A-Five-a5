@@ -1,6 +1,5 @@
 from tkinter import *
 from tkinter import ttk
-import pygame
 from PIL import ImageTk, Image
 def d():
    print('h')
@@ -21,14 +20,19 @@ def main():
     background = ImageTk.PhotoImage(bg_image)
     canvas.create_image(0,0,image=background,anchor=NW)
     
-    wall = Image.open("./image/wall.png")
-    wall = wall.resize((50, 45)) 
-    wall = ImageTk.PhotoImage(wall)
-    wall_image = canvas.create_image(250, 624, image=wall, anchor=CENTER)
-
-
-    
-                                                                      
+#    ------Wall------    
+    canvas.create_rectangle(0, 630, 400, 810, fill="black", tags="wall")
+    canvas.create_rectangle(0, 0, 20, 810, fill="black", tags="wall")
+    canvas.create_rectangle(0, 0, 1400, 20, fill="black", tags="wall")
+    canvas.create_rectangle(1250, 0, 1300, 1200, fill="black", tags="wall")
+    canvas.create_rectangle(500, 630, 1536, 810, fill="black", tags="wall")
+    canvas.create_rectangle(500, 530, 550, 810, fill="black", tags="wall")
+    canvas.create_rectangle(600, 570, 550, 810, fill="black", tags="wall")
+    canvas.create_rectangle(650, 595, 550, 810, fill="black", tags="wall")
+    canvas.create_rectangle(400, 530, 350, 810, fill="black", tags="wall")
+    canvas.create_rectangle(400, 570, 300, 810, fill="black", tags="wall")
+    canvas.create_rectangle(400, 600, 250, 810, fill="black", tags="wall")
+#                                                
     window1.mainloop()
 
     
