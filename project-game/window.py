@@ -1,26 +1,97 @@
 from tkinter import *
 from tkinter import ttk
 from PIL import ImageTk, Image
-def d():
-   print('h')
+
 def main():
     global window
     window.destroy()
-    window1 = Tk()
-    window1.title('ba')
-    window1.geometry(f'{app_width}x{app_height}')
-    frame = Frame(window1, width=app_width, height=app_height)
+    window = Tk()
+    window.title('ab')
+    app_width = window.winfo_screenwidth()
+    app_height = window.winfo_screenheight()
+    window.geometry(f'{app_width}x{app_height}')
+    frame = Frame(window, width=app_width, height=app_height)
     frame.pack()
-    canvas=Canvas(frame,width=app_width, height=app_height)
+    canvas = Canvas(frame, width=app_width, height=app_height)
     canvas.pack()
-    # creat_button=Button(frame,command=d,bg='blue',width=100,height=10)
-    # creat_button.pack()
-    bg_image = Image.open("image/bg.png")
-    bg_image = bg_image.resize((app_width,app_height))
+    bg_image = Image.open("image/tree2.png")
+    bg_image = bg_image.resize((app_width, app_height))
     background = ImageTk.PhotoImage(bg_image)
-    canvas.create_image(0,0,image=background,anchor=NW)
+    canvas.create_image(0, 0, image=background, anchor=NW)
+    canvas.create_text(650, 170, text="Super A Five", fill="blue", font=('DRAGON HUNTER', 50))
+
+    def button_clicked():
+        print("Button clicked!")
+    button_back = Button(canvas, text="Setting",font=90, command=button_clicked, bg='blue',border=25)
+    button_back.pack()
+    button_back.place(x=550, y=250, width=250)
     
-#    ------Wall------    
+    button_back2 = Button(canvas, text="Menu",font=90 ,command=button_clicked, bg='blue',border=25)
+    button_back2.pack()
+    button_back2.place(x=550, y=370, width=250)
+
+    button_back3 = Button(canvas, text="Start Game",font=90, command=button_clicked, bg='blue',border=25)
+    button_back3.pack()
+    button_back3.place(x=550, y=490, width=250)
+
+    window.after(3000, window3)
+    window.mainloop()
+
+def window3():
+    global window
+    window.destroy() 
+    window = Tk()
+    window.title('av')
+    app_width = window.winfo_screenwidth()
+    app_height = window.winfo_screenheight()
+    window.geometry(f'{app_width}x{app_height}')
+    frame = Frame(window, width=app_width, height=app_height)
+    frame.pack()
+    canvas = Canvas(frame, width=app_width, height=app_height)
+    canvas.pack()
+    bg_image = Image.open("image/tree.png")
+    bg_image = bg_image.resize((app_width, app_height))
+    background = ImageTk.PhotoImage(bg_image)
+    canvas.create_image(0, 0, image=background, anchor=NW)
+    def button_clicked():
+        print("Button clicked!")
+    button_back = Button(canvas, text="Back",font=40, command=button_clicked, bg='red',border=10)
+    button_back.pack()
+    button_back.place(x=50, y=50, width=90)
+
+    button_back = Button(canvas, text="Hard",font=90, command=button_clicked, bg='blue',border=25)
+    button_back.pack()
+    button_back.place(x=550, y=220, width=250)
+    
+    button_back2 = Button(canvas, text="Normal",font=90, command=button_clicked, bg='blue',border=25)
+    button_back2.pack()
+    button_back2.place(x=550, y=340, width=250)
+
+    button_back3 = Button(canvas, text="Easy",font=90, command=button_clicked, bg='blue',border=25)
+    button_back3.pack()
+    button_back3.place(x=550, y=460, width=250)
+    window.after(1000, window4)
+    window.mainloop()
+
+
+def window4():
+    global window
+    window.destroy() 
+    windows4 = Tk()
+    windows4.title('v')
+    app_width = windows4.winfo_screenwidth()
+    app_height = windows4.winfo_screenheight()
+    windows4.geometry(f'{app_width}x{app_height}')
+    frame = Frame(windows4, width=app_width, height=app_height)
+    frame.pack()
+    canvas = Canvas(frame, width=app_width, height=app_height)
+    canvas.pack()
+    bg_image = Image.open("image/window4.png")
+    bg_image = bg_image.resize((app_width, app_height))
+    background = ImageTk.PhotoImage(bg_image)
+    canvas.create_image(0, 0, image=background, anchor=NW)
+
+    #    ------Wall------    
     canvas.create_rectangle(0, 630, 400, 810, fill="black", tags="wall")
     canvas.create_rectangle(0, 0, 20, 810, fill="black", tags="wall")
     canvas.create_rectangle(0, 0, 1400, 20, fill="black", tags="wall")
@@ -32,17 +103,15 @@ def main():
     canvas.create_rectangle(400, 530, 350, 810, fill="black", tags="wall")
     canvas.create_rectangle(400, 570, 300, 810, fill="black", tags="wall")
     canvas.create_rectangle(400, 600, 250, 810, fill="black", tags="wall")
-#                                                
-    window1.mainloop()
+#
+    windows4.mainloop()
 
-    
-    
 window = Tk()
 app_width = window.winfo_screenwidth()
 app_height = window.winfo_screenheight()
 window.geometry(f'{app_width}x{app_height}')
-bg_image = Image.open("./image/bg2.jpg")
-bg_image = bg_image.resize((app_width,app_height))
+bg_image = Image.open("./image/window1.png")
+bg_image = bg_image.resize((app_width, app_height))
 background = ImageTk.PhotoImage(bg_image)
 
 frame = Frame(window, width=app_width, height=app_height)
@@ -52,68 +121,15 @@ canvas = Canvas(frame, width=app_width, height=app_height)
 canvas.pack()
 canvas.create_image(0, 0, image=background, anchor=NW)
 
-Player = Image.open("./image/Mario.png")
-Player = Player.resize((140, 145)) 
-Player = ImageTk.PhotoImage(Player)
-Player_image = canvas.create_image(150, 527, image=Player, anchor=CENTER)
-
-Coins1 = Image.open("./image/Coins11.png")
-Coins1 = Coins1.resize((50, 40)) 
-Coins1 = ImageTk.PhotoImage(Coins1)
-Coins_img = canvas.create_image(230, 550, image=Coins1, anchor=CENTER)
-
-Coins2 = Image.open("./image/Coins11.png")
-Coins2 = Coins2.resize((50, 40)) 
-Coins2 = ImageTk.PhotoImage(Coins2)
-Coins_img = canvas.create_image(260, 550, image=Coins2, anchor=CENTER)
-
-Coins3 = Image.open("./image/Coins11.png")
-Coins3 = Coins3.resize((50, 40)) 
-Coins3 = ImageTk.PhotoImage(Coins3)
-Coins_img = canvas.create_image(290, 550, image=Coins3, anchor=CENTER)
-
-Coins4 = Image.open("./image/Coins11.png")
-Coins4 = Coins4.resize((50, 40)) 
-Coins4 = ImageTk.PhotoImage(Coins4)
-Coins_img = canvas.create_image(230, 570, image=Coins4, anchor=CENTER)
-
-Coins5 = Image.open("./image/Coins11.png")
-Coins5 = Coins5.resize((50, 40)) 
-Coins5 = ImageTk.PhotoImage(Coins5)
-Coins_img = canvas.create_image(260, 570, image=Coins5, anchor=CENTER)
-
-Coins6 = Image.open("./image/Coins11.png")
-Coins6 = Coins6.resize((50, 40)) 
-Coins6 = ImageTk.PhotoImage(Coins6)
-Coins_img = canvas.create_image(280, 570, image=Coins6, anchor=CENTER)
-
-Coins7 = Image.open("./image/Coins11.png")
-Coins7 = Coins7.resize((50, 40)) 
-Coins7 = ImageTk.PhotoImage(Coins7)
-Coins_img = canvas.create_image(300, 570, image=Coins7, anchor=CENTER)
-
-Coins8 = Image.open("./image/Coins11.png")
-Coins8 = Coins8.resize((50, 40)) 
-Coins8 = ImageTk.PhotoImage(Coins8)
-Coins_img = canvas.create_image(320, 570, image=Coins8, anchor=CENTER)
-
-Coins9 = Image.open("./image/Coins11.png")
-Coins9 = Coins9.resize((50, 40)) 
-Coins9 = ImageTk.PhotoImage(Coins9)
-Coins_img = canvas.create_image(315, 550, image=Coins9, anchor=CENTER)
-Coins10 = Image.open("./image/Coins11.png")
-Coins10 = Coins10.resize((50, 40)) 
-Coins10 = ImageTk.PhotoImage(Coins10)
-Coins_img = canvas.create_image(335, 560, image=Coins10, anchor=CENTER)
-
 splash_label = Label(window, text="Power A-five", font=("Robus", 60, "bold"))
 splash_label.pack()
 splash_label.place(relx=0.5, rely=0.3, anchor='center')
 
 window.title("Progress Bar in Tk")
 progressbar = ttk.Progressbar(mode="indeterminate")
-progressbar.place(x=170, y=390, width=240)
+progressbar.place(x=550, y=390, width=240)
 progressbar.start()
+window.after(2000, main) 
 
-window.after(1000, main)
+
 window.mainloop()
